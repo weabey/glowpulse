@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+  body {
+    @apply text-gray-800 antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  ::selection {
+    @apply bg-teal-200 text-teal-900;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/20;
+  }
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-emerald-600 to-cyan-500;
+  }
+  .btn-primary {
+    @apply bg-gradient-to-r from-teal-600 to-emerald-600 text-white font-semibold
+           rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-teal-500/25
+           hover:-translate-y-0.5 active:translate-y-0;
+  }
+  .input-modern {
+    @apply w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50
+           focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-400
+           focus:bg-white transition-all duration-200 text-sm placeholder:text-gray-400;
+  }
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
