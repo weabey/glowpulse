@@ -1,5 +1,5 @@
 import { Search, ChevronDown } from 'lucide-react';
-import { categories } from '../data/ads';
+import { categories } from '../../constants/seedData';
 
 export default function SearchBar({ query, category, onQueryChange, onCategoryChange, onSearch, variant = 'default' }) {
   const handleSubmit = (e) => {

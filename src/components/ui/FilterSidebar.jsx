@@ -1,5 +1,5 @@
 import { SlidersHorizontal, X, RotateCcw } from 'lucide-react';
-import { categories, locations } from '../data/ads';
+import { categories, locations } from '../../constants/seedData';
 
 export default function FilterSidebar({ filters, onChange, onReset, resultCount }) {
   const sortOptions = [

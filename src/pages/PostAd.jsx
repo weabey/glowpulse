@@ -4,7 +4,7 @@ import {
   ImagePlus, X, Phone, DollarSign, MapPin, Tag, FileText,
   Type, Upload, CheckCircle2, AlertCircle, Sparkles,
 } from 'lucide-react';
-import { categories, locations } from '../data/ads';
+import { categories, locations } from '../constants/seedData';
 import { useAds } from '../context/AdsContext';
 import { useAuth } from '../context/AuthContext';
 

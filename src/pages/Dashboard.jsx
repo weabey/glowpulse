@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { User, MapPin, Tag, Calendar, Edit3, Save, X, Plus, Trash2 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useAds } from '../context/AdsContext';
-import { categories, locations } from '../data/ads';
-import AdCard from '../components/AdCard';
+import { categories, locations } from '../constants/seedData';
+import AdCard from '../components/ui/AdCard';
 
 export default function Dashboard() {
   const { currentUser, updateProfile } = useAuth();

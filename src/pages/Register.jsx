@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Eye, EyeOff, Upload, UserPlus, Building2, ArrowRight } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
-import { categories, locations } from '../data/ads';
+import { categories, locations } from '../constants/seedData';
 
 export default function Register() {
   const navigate = useNavigate();

@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { ArrowRight, Scissors, Palette, CircleDot, Armchair, Sparkles as NailIcon, Heart, ShoppingBag, TrendingUp, Shield, Zap } from 'lucide-react';
 import { useAds } from '../context/AdsContext';
-import SearchBar from '../components/SearchBar';
-import AdCard from '../components/AdCard';
+import SearchBar from '../components/ui/SearchBar';
+import AdCard from '../components/ui/AdCard';
 
 const categoryData = [
   { name: 'Hair Salons', icon: Scissors, color: 'from-pink-500 to-pink-600', bg: 'bg-pink-50', text: 'text-pink-600' },

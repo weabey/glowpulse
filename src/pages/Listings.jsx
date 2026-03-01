@@ -2,9 +2,9 @@ import { useState, useMemo, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { SlidersHorizontal, X, SearchX } from 'lucide-react';
 import { useAds } from '../context/AdsContext';
-import SearchBar from '../components/SearchBar';
-import FilterSidebar from '../components/FilterSidebar';
-import AdCard from '../components/AdCard';
+import SearchBar from '../components/ui/SearchBar';
+import FilterSidebar from '../components/ui/FilterSidebar';
+import AdCard from '../components/ui/AdCard';
 
 const defaultFilters = {
   category: '',

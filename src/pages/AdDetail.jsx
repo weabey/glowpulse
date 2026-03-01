@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, MapPin, Calendar, Tag, User, Phone, Mail, Shield, Share2, Heart, ExternalLink, MessageSquare, Send, Star } from 'lucide-react';
 import { useAds } from '../context/AdsContext';
-import AdCard from '../components/AdCard';
-import StarRating from '../components/StarRating';
+import AdCard from '../components/ui/AdCard';
+import StarRating from '../components/ui/StarRating';
 
 export default function AdDetail() {
   const { id } = useParams();
