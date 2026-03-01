@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, useRef } from 'react';
 import { supabase } from '../lib/supabase';
 
 const AuthContext = createContext(null);
@@ -6,6 +6,7 @@ const AuthContext = createContext(null);
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const signingOut = useRef(false);
 
   useEffect(() => {
     // Get initial session
@@ -20,10 +21,13 @@ export function AuthProvider({ children }) {
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
-        if (event === 'SIGNED_IN' && session?.user) {
+        if (signingOut.current) return;
+
+        if ((event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') && session?.user) {
           await fetchProfile(session.user);
         } else if (event === 'SIGNED_OUT') {
           setCurrentUser(null);
+          setLoading(false);
         }
       }
     );
@@ -107,8 +111,11 @@ export function AuthProvider({ children }) {
   };
 
   const logout = async () => {
-    await supabase.auth.signOut();
+    signingOut.current = true;
     setCurrentUser(null);
+    setLoading(false);
+    await supabase.auth.signOut({ scope: 'local' });
+    signingOut.current = false;
   };
 
   const updateProfile = async (fields) => {
